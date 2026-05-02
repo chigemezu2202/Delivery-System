@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 // import { useState } from "react";
 // import { Card, CardContent } from "@/components/ui/card";
 // import { Button } from "@/components/ui/button";
@@ -54,7 +54,7 @@
 //     </div>
 //   );
 // }
-
+"use client";
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
