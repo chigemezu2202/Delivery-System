@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 // import { useState } from "react";
 // import { Card, CardContent } from "@/components/ui/card";
 // import { Button } from "@/components/ui/button";
@@ -78,8 +78,15 @@ export default function DeliveryDemo() {
   // Fake notifications
   useEffect(() => {
     if (page === "dashboard") {
-      setNotify("New order received!");
-      setTimeout(() => setNotify(""), 3000);
+      // Delaying the update prevents the synchronous cascading render error
+      const timer = setTimeout(() => {
+        setNotify("New order received!");
+
+        // Clear it after 3 seconds
+        setTimeout(() => setNotify(""), 3000);
+      }, 0);
+
+      return () => clearTimeout(timer);
     }
   }, [page]);
 
